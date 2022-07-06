@@ -1,6 +1,6 @@
 {
-    "name": "agent_web",
-    "short_name": "agent_web",
+    "name": "Agent",
+    "short_name": "Agent",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

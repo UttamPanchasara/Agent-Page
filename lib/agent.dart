@@ -314,7 +314,7 @@ class _AgentState extends State<Agent> {
                   ),
                 ),
                 Text(
-                  'Agent will notify you whenever someone wants to help you\nor create post with the topics you\'re interested in,',
+                  'Agent will notify you whenever someone wants to help you,\nor creates post with the topics you\'re interested in,',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     fontWeight: FontWeight.w700,

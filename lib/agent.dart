@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:agent_web/common/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -43,6 +41,7 @@ class _AgentState extends State<Agent> {
       width: MediaQuery.of(context).size.width,
       child: Container(
         color: AppColors.chatColors.randomItem(),
+        padding: const EdgeInsets.symmetric(vertical: 32.0),
         child: Center(
           child: SizedBox(
             width: MediaQuery.of(context).size.width * 0.8,
@@ -115,6 +114,7 @@ class _AgentState extends State<Agent> {
       width: MediaQuery.of(context).size.width,
       child: Container(
         color: AppColors.chatColors.randomItem(),
+        padding: const EdgeInsets.symmetric(vertical: 32.0),
         child: Center(
           child: SizedBox(
             width: MediaQuery.of(context).size.width * 0.8,
@@ -180,6 +180,7 @@ class _AgentState extends State<Agent> {
       width: MediaQuery.of(context).size.width,
       child: Container(
         color: AppColors.chatColors.randomItem(),
+        padding: const EdgeInsets.symmetric(vertical: 32.0),
         child: Center(
           child: SizedBox(
             width: MediaQuery.of(context).size.width * 0.8,
@@ -242,11 +243,11 @@ class _AgentState extends State<Agent> {
 
   Widget pageNotification() {
     return SizedBox(
-      height: isWebsiteView() ? MediaQuery.of(context).size.height * 0.5 : null,
+      height: isWebsiteView() ? MediaQuery.of(context).size.height * 0.7 : null,
       width: MediaQuery.of(context).size.width,
       child: Container(
         color: AppColors.chatColors.randomItem(),
-        padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 32.0),
+        padding: const EdgeInsets.symmetric(vertical: 32.0),
         child: Center(
           child: SizedBox(
             width: MediaQuery.of(context).size.width * 0.8,
@@ -271,25 +272,27 @@ class _AgentState extends State<Agent> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                clipBehavior: Clip.antiAlias,
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width * (isWebsiteView() ? 0.2 : 0.8),
-                  child: Image.asset('assets/screens/n2.png'),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * (isWebsiteView() ? 0.25 : 0.5),
+                child: ClipRRect(
+                  clipBehavior: Clip.antiAlias,
+                  borderRadius: BorderRadius.circular(16.0),
+                  child: Image.asset(
+                    'assets/screens/n2.png',
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               const SizedBox(height: 40.0),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                clipBehavior: Clip.antiAlias,
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width * (isWebsiteView() ? 0.2 : 0.8),
-                  child: Image.asset('assets/screens/n1.png'),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * (isWebsiteView() ? 0.25 : 0.5),
+                child: ClipRRect(
+                  clipBehavior: Clip.antiAlias,
+                  borderRadius: BorderRadius.circular(16.0),
+                  child: Image.asset(
+                    'assets/screens/n1.png',
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ],
@@ -297,35 +300,32 @@ class _AgentState extends State<Agent> {
         ),
       ),
       Center(
-        child: Row(
-          children: [
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  'Get notified,',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w900,
-                    fontSize: 48,
-                    letterSpacing: 1,
-                    fontStyle: FontStyle.italic,
-                  ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            FittedBox(
+              child: Text(
+                'Get notified,',
+                style: TextStyle(
+                  fontWeight: FontWeight.w900,
+                  fontSize: 48,
+                  letterSpacing: 1,
+                  fontStyle: FontStyle.italic,
                 ),
-                Text(
-                  'Agent will notify you whenever someone wants to help you,\nor creates post with the topics you\'re interested in,',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 16,
-                    color: AppColors.textColorGrey,
-                    letterSpacing: 1,
-                  ),
-                ),
-              ],
+              ),
             ),
-            const SizedBox(width: 100)
+            FittedBox(
+              child: Text(
+                'Agent will notify you whenever someone wants to help you,\nor creates post with the topics you\'re interested in.',
+                style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 16,
+                  color: AppColors.textColorGrey,
+                  letterSpacing: 1,
+                ),
+              ),
+            ),
           ],
         ),
       )
@@ -347,28 +347,32 @@ class _AgentState extends State<Agent> {
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
-                Text(
-                  'Connect with us,',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w900,
-                    fontSize: 16,
-                    letterSpacing: 1,
-                    fontStyle: FontStyle.italic,
+                FittedBox(
+                  child: Text(
+                    'Connect with us,',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w900,
+                      fontSize: 16,
+                      letterSpacing: 1,
+                      fontStyle: FontStyle.italic,
+                    ),
                   ),
                 ),
-                Text(
-                  '@ www.vipl.io',
-                  textAlign: TextAlign.end,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 16,
-                    color: AppColors.textColorGrey,
-                    letterSpacing: 1,
+                FittedBox(
+                  child: Text(
+                    '@ www.vipl.io',
+                    textAlign: TextAlign.end,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 16,
+                      color: AppColors.textColorGrey,
+                      letterSpacing: 1,
+                    ),
                   ),
                 ),
                 Center(
-                  child: Text('©2021  Vishwakarma Infotech Private Limited'),
+                  child: FittedBox(child: Text('©2021  Vishwakarma Infotech Private Limited')),
                 )
               ],
             ),
